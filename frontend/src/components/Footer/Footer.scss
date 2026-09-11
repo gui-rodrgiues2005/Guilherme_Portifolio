@@ -1,0 +1,23 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  background-color: $color-bg;
+
+  &__container {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 32px 48px;
+  }
+
+  &__copyright {
+    font-size: 0.9rem;
+    color: $color-text-soft;
+    margin: 0;
+  }
+
+  @media (max-width: $bp-tablet) {
+    &__container {
+      padding: 0 24px 40px;
+    }
+  }
+}

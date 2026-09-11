@@ -1,0 +1,18 @@
+/* ScrollReveal.scss */
+.scroll-reveal {
+  opacity: 0 !important;
+  transform: translateY(30px) !important; 
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out !important;
+}
+
+.scroll-reveal--visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important; 
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

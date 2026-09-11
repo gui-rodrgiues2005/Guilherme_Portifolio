@@ -1,0 +1,140 @@
+@use '../../styles/variables' as *;
+
+.hero-illustration {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 480 / 420;
+
+  &__svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+  }
+
+  &__glow {
+    fill: $color-accent;
+    opacity: 0.07;
+  }
+
+  &__window {
+    animation: hero-illustration-float 6s ease-in-out infinite;
+    transform-origin: center;
+
+    rect:first-child {
+      fill: $color-bg-alt;
+      stroke: $color-border;
+      stroke-width: 1.5;
+    }
+  }
+
+  &__dot {
+    fill: $color-border;
+  }
+
+  &__rule {
+    stroke: $color-border;
+    stroke-width: 1.5;
+  }
+
+  &__line {
+    fill: $color-border;
+
+    &--soft {
+      fill: #dcd9cc;
+    }
+
+    &--accent {
+      fill: $color-accent;
+    }
+
+    &--accent-soft {
+      fill: $color-accent;
+      opacity: 0.55;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: $radius-pill;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+    &--light {
+      background-color: $color-bg-alt;
+      border: 1px solid $color-border;
+      color: $color-text;
+    }
+
+    &--solid {
+      background-color: $color-accent;
+      color: #fff;
+    }
+
+    &--top-left {
+      left: 4%;
+      top: 34%;
+      transform: translate(-50%, -50%) rotate(-8deg);
+      animation-name: hero-illustration-bob;
+      animation-delay: 0.4s;
+    }
+
+    &--top-right {
+      left: 92%;
+      top: 38%;
+      transform: translate(-50%, -50%) rotate(5deg);
+      animation-name: hero-illustration-bob;
+      animation-delay: 1.1s;
+    }
+
+    &--bottom-left {
+      left: 12%;
+      top: 84%;
+      transform: translate(-50%, -50%) rotate(7deg);
+      animation-name: hero-illustration-bob;
+      animation-delay: 0.8s;
+    }
+  }
+}
+
+@keyframes hero-illustration-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+// as badges já usam transform para posição + rotação, então a flutuação
+// delas anima margin-top em vez de transform, pra não sobrescrever a rotação
+@keyframes hero-illustration-bob {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-illustration__window,
+  .hero-illustration__badge {
+    animation: none;
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .hero-illustration {
+    display: none;
+  }
+}

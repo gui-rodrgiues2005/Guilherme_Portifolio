@@ -1,0 +1,86 @@
+@use '../../styles/variables' as *;
+
+.about {
+  background-color: $color-bg;
+  padding: 96px 32px;
+
+  &__container {
+    max-width: $max-width;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 96px;
+    align-items: start;
+  }
+
+  &__intro {
+    max-width: 640px;
+  }
+
+  &__eyebrow {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $color-eyebrow;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-size: clamp(2rem, 3.4vw, 2.75rem);
+    line-height: 1.2;
+    font-weight: 500;
+    color: $color-text;
+    letter-spacing: -0.01em;
+    margin: 0 0 32px;
+  }
+
+  &__paragraph {
+    font-size: $font-size-body;
+    line-height: $line-height-base;
+    color: $color-text-muted;
+    margin: 0 0 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__skill {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 0;
+    border-bottom: 1px solid $color-border;
+    font-size: 1.05rem;
+    color: $color-link;
+
+    &:first-child {
+      padding-top: 0;
+    }
+  }
+
+  &__skill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-accent-dot;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: $bp-tablet) {
+    padding: 64px 24px;
+
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 56px;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+// ==========================================================================
+// Design tokens do portfólio
+// Importe este arquivo no topo de qualquer .scss com:
+// @use '../../styles/variables' as *;
+// (ajuste o caminho relativo conforme a pasta do componente)
+// ==========================================================================
+
+// Cores
+$color-bg: #f5f3ee;
+$color-bg-alt: #ffffff;
+$color-text: #1c1c1a;
+$color-text-muted: #7a7a74;
+$color-text-soft: #9a9a93;
+$color-border: #e4e1d8;
+
+$color-accent: #3f6b52;      // verde do botão principal
+$color-accent-dark: #325745;
+$color-accent-dot: #4caf6d;  // ponto verde do badge "Disponível para estágio"
+$color-link: #4b5f86;        // azul do link "Ou entre em contato diretamente"
+$color-eyebrow: #8b7fae;     // roxo do label "SOBRE MIM"
+$color-eyebrow-warm: #c17a4f; // laranja do label "PROJETO PRINCIPAL"
+
+// Tipografia
+$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+$font-size-nav: 0.95rem;
+$font-size-body: 1.05rem;
+$font-size-hero: clamp(2.25rem, 4.4vw, 3.75rem);
+
+$line-height-tight: 1.05;
+$line-height-base: 1.6;
+
+// Layout
+$max-width: 1200px;
+$spacing-unit: 8px;
+
+$radius-pill: 999px;
+$radius-md: 12px;
+
+// Breakpoints
+$bp-tablet: 768px;
+$bp-mobile: 480px;

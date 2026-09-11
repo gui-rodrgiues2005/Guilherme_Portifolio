@@ -1,0 +1,31 @@
+@use './styles/variables' as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+
+  /* Se a sua barra de navegação for fixa (sticky) no topo da tela, 
+     adicione o padding abaixo. Ele impede que a navegação cubra o título da seção: */
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: $font-family-base;
+  color: $color-text;
+  background-color: $color-bg;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  font-family: inherit;
+}
+
+.app {
+  min-height: 100vh;
+}

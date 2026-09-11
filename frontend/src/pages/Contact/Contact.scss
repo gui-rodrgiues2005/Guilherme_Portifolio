@@ -1,0 +1,105 @@
+@use '../../styles/variables' as *;
+
+.contact {
+  background-color: $color-bg;
+  padding: 96px 32px 64px;
+
+  &__container {
+    max-width: $max-width;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  &__eyebrow {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $color-eyebrow;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    line-height: 1.1;
+    font-weight: 500;
+    color: $color-text;
+    letter-spacing: -0.01em;
+    margin: 0 0 24px;
+  }
+
+  &__description {
+    max-width: 420px;
+    font-size: $font-size-body;
+    line-height: $line-height-base;
+    color: $color-text-muted;
+    margin: 0 0 36px;
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border-radius: $radius-pill;
+    background-color: $color-accent;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid $color-accent;
+    transition: background-color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      background-color: $color-accent-dark;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid $color-border;
+  }
+
+  &__item {
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 4px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__link-label {
+    font-size: 1rem;
+    color: $color-text-muted;
+  }
+
+  &__link-value {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: $color-text;
+  }
+
+  @media (max-width: $bp-tablet) {
+    padding: 64px 24px 48px;
+
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+}
