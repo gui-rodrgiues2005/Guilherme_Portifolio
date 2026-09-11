@@ -156,7 +156,7 @@ Alguns projetos e experiências ainda não estão apresentados aqui, mas serão 
 ## 🌐 Portfólio
 
 🔗 **Acesse meu portfólio:**
-[Em breve / seu link da Vercel]
+https://guilhermecosta-portifolio.vercel.app
 
 ---
 
@@ -164,14 +164,11 @@ Alguns projetos e experiências ainda não estão apresentados aqui, mas serão 
 
 Estou aberto a oportunidades, projetos e conexões profissionais.
 
-**GitHub:**
-[Seu GitHub]
-
 **LinkedIn:**
-[Seu LinkedIn]
+https://www.linkedin.com/in/guilherme-rodrigues-costa-a39a15268/
 
 **E-mail:**
-[Seu e-mail]
+rodriguesguidev@gmail.com
 
 ---
 
