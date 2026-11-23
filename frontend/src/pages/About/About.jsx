@@ -30,7 +30,8 @@ function About() {
           <p className="about__paragraph">
             Hoje tenho produtos reais em produção, como a DROPMA, plataforma
             que idealizei e opero, integrada ao Mercado Livre e com pagamentos
-            via Pix, e o FreelancersApp, que conecta eventos, bares e restaurantes
+            via Pix, e o FreelancersApp, do qual sou co-fundador, com mais de
+            700 usuários, que conecta eventos, bares e restaurantes
             a freelancers verificados, com pagamento reservado e check-in por
             QR Code.
           </p>

@@ -21,7 +21,7 @@ function Resume() {
 
           <div className="resume__actions">
             <a
-              href="/Guilherme_CV.pdf"
+              href="/Guilherme_Rodrigues_Costa_CV.pdf"
               target="_blank"
               rel="noreferrer"
               className="resume__button resume__button--primary"
@@ -31,8 +31,8 @@ function Resume() {
             </a>
 
             <a
-              href="/Guilherme_CV.pdf"
-              download="Guilherme-Rodrigues-Curriculo.pdf"
+              href="/Guilherme_Rodrigues_Costa_CV.pdf"
+              download="Guilherme-Rodrigues-Costa-Curriculo.pdf"
               className="resume__button resume__button--outline"
             >
               <span aria-hidden="true">⭳</span>

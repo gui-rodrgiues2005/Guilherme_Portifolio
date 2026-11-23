@@ -47,11 +47,11 @@ const PROJECTS = [
       'Idealizei, desenvolvi e opero a plataforma: produto, regras de negócio, frontend, backend, integrações com marketplace e pagamentos, deploy e também os Termos de Uso e a Política de Privacidade (LGPD). Hoje a DROPMA está em fase de validação com usuários reais.',
 
     highlights: [
-      'Integração com a API do Mercado Livre: importação de anúncios, publicação nas contas dos revendedores e conversão de cada venda em pedido para o fornecedor',
+      'Integração com o Mercado Livre via OAuth 2.0 (PKCE): conexão das lojas, importação de anúncios, publicação nas contas dos revendedores e conversão de cada venda em pedido para o fornecedor',
       'Cálculo de lucro antes de anunciar, considerando tarifa do Mercado Livre, frete, imposto, custo e taxa',
       'Pagamentos por Pix com Asaas e Mercado Pago, carteira com saldo e pagamento automático das vendas',
       'Valores em custódia: repasse ao fornecedor após a entrega e estorno automático em cancelamentos e devoluções',
-      'Anúncios escritos com IA: título, descrição e legenda para redes sociais',
+      'Anúncios escritos com IA via OpenRouter, com fallback entre modelos quando um provedor falha',
       'Planos por assinatura com limites por perfil, cobrados via Pix',
       'Reputação dos fornecedores no catálogo e vitrine pública para divulgação',
       'Avisos em cada etapa do pedido, PWA com notificações push e login com Google',
@@ -64,6 +64,8 @@ const PROJECTS = [
       'C#',
       'ASP.NET Core',
       'API do Mercado Livre',
+      'OAuth 2.0',
+      'OpenRouter',
       'Asaas',
       'Mercado Pago',
       'Pix',
@@ -88,17 +90,18 @@ const PROJECTS = [
       'Dar segurança às duas pontas. A empresa contrata profissionais com documento verificado e reputação visível, e o pagamento fica reservado na carteira antes do turno começar. Assim o freelancer sabe que vai receber, e a empresa só libera o valor depois que a presença é confirmada por QR Code. Se alguém falta, a vaga reabre como urgente para quem está por perto.',
 
     role:
-      'Responsável pelo desenvolvimento full stack completo: arquitetura, modelagem do banco de dados, API, interfaces, regras de negócio, integrações externas, infraestrutura e deploy em produção.',
+      'Sou co-fundador e desenvolvedor. Construí e coloquei a plataforma em produção, sendo responsável pela maior parte das funcionalidades: vagas, candidaturas, agenda, carteira, avaliações e painel administrativo. Hoje a plataforma tem mais de 700 usuários cadastrados.',
 
     highlights: [
+      'Mais de 700 usuários cadastrados em produção',
       'Ciclo completo do turno: vaga, candidatura, "a caminho", check-in por QR Code e finalização',
-      'Pagamento reservado na carteira antes do turno, com repasse e saque via Asaas',
+      'Carteira com Pix e cartão via Asaas: o valor fica reservado e é liberado ao freelancer ao fim do trabalho, já com a taxa da plataforma calculada',
+      'Lembrete push 1h antes do turno (WebPush + Hangfire) para reduzir faltas',
+      'Correção de uma falha de IDOR, validando no back-end se o usuário do token JWT é dono do recurso',
       'Verificação de documento antes de liberar as vagas para o freelancer',
       'Vagas por raio de distância e reabertura urgente em caso de falta, com bônus opcional',
       'Avaliações, advertências e suspensão automática para manter a qualidade',
-      'Avisos em tempo real com SignalR e notificações push no PWA instalável',
-      'Planos premium, treinamentos em vídeo e central administrativa',
-      'API REST em ASP.NET Core com PostgreSQL, Cloudinary, Resend e deploy no Railway',
+      'Chat e avisos em tempo real com SignalR, em um PWA instalável',
     ],
 
     technologies: [
@@ -109,6 +112,7 @@ const PROJECTS = [
       'Entity Framework Core',
       'PostgreSQL',
       'SignalR',
+      'Hangfire',
       'Asaas',
       'Cloudinary',
       'Resend',

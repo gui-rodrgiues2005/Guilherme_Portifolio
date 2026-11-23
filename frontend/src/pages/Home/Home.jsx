@@ -34,8 +34,8 @@ function Home() {
             </a>
 
             <a
-              href="/Guilherme_CV.pdf"
-              download
+              href="/Guilherme_Rodrigues_Costa_CV.pdf"
+              download="Guilherme-Rodrigues-Costa-Curriculo.pdf"
               className="home__button home__button--secondary"
             >
               <span aria-hidden="true">⭳</span>
