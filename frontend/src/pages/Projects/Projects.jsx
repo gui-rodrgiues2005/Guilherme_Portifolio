@@ -1,7 +1,8 @@
 import ScrollReveal from '../../components/ScrollReveal/ScrollReveal';
-import freelancersapp from "../../assets/freelancers-app.png";
-import intellistudy from "../../assets/intellistudy.png";
-import vittaflow from "../../assets/vittaflow.png";
+import dropma from '../../assets/dropma.png';
+import freelancersapp from '../../assets/freelancers-app.png';
+import intellistudy from '../../assets/intellistudy.png';
+import vittaflow from '../../assets/vittaflow.png';
 import './Projects.scss';
 
 // Ícone simples do GitHub (inline, sem dependência externa)
@@ -19,39 +20,85 @@ function GitHubIcon() {
   );
 }
 
+/*
+ * Cada projeto conta a mesma história, na mesma ordem:
+ * contexto (o problema real) → intenção (o que eu queria provar/resolver)
+ * → papel (o que foi meu) → destaques técnicos → tecnologias.
+ */
 const PROJECTS = [
+  {
+    id: 'dropma',
+    featured: true,
+    status: { label: 'Em produção', tone: 'live' },
+    eyebrow: 'Produto próprio · Mais recente',
+    title: 'DROPMA',
+    tagline:
+      'Plataforma que conecta fornecedores a revendedores do Mercado Livre. O revendedor vende sem ter estoque, o fornecedor ganha uma rede de vendas e a DROPMA cuida do cálculo de lucro, dos pedidos e dos repasses.',
+    image: dropma,
+    liveUrl: 'https://www.dropma.com.br',
+
+    context:
+      'Revender produtos de terceiros no Mercado Livre parece simples, mas o revendedor raramente sabe se vai ter lucro depois de tarifa, frete e imposto. Além disso, fornecedor e revendedor precisam confiar um no outro para que o dinheiro e o produto cheguem ao destino. Sem um intermediário, cada venda vira uma negociação no WhatsApp.',
+
+    intention:
+      'Construir um produto real, com dinheiro de verdade circulando, que resolvesse a parte mais difícil dessa relação: a confiança. Desenhei o fluxo para que ninguém precise depender da palavra do outro. O revendedor paga o pedido, o valor fica guardado e só é repassado ao fornecedor 7 dias depois da entrega. Se a venda for cancelada, o dinheiro volta automaticamente para quem pagou.',
+
+    role:
+      'Idealizei, desenvolvi e opero a plataforma: produto, regras de negócio, frontend, backend, integrações com marketplace e pagamentos, deploy e também os Termos de Uso e a Política de Privacidade (LGPD). Hoje a DROPMA está em fase de validação com usuários reais.',
+
+    highlights: [
+      'Integração com a API do Mercado Livre: importação de anúncios, publicação nas contas dos revendedores e conversão de cada venda em pedido para o fornecedor',
+      'Cálculo de lucro antes de anunciar, considerando tarifa do Mercado Livre, frete, imposto, custo e taxa',
+      'Pagamentos por Pix com Asaas e Mercado Pago, carteira com saldo e pagamento automático das vendas',
+      'Valores em custódia: repasse ao fornecedor após a entrega e estorno automático em cancelamentos e devoluções',
+      'Anúncios escritos com IA: título, descrição e legenda para redes sociais',
+      'Planos por assinatura com limites por perfil, cobrados via Pix',
+      'Reputação dos fornecedores no catálogo e vitrine pública para divulgação',
+      'Avisos em cada etapa do pedido, PWA com notificações push e login com Google',
+    ],
+
+    technologies: [
+      'React',
+      'Vite',
+      'Redux Toolkit',
+      'C#',
+      'ASP.NET Core',
+      'API do Mercado Livre',
+      'Asaas',
+      'Mercado Pago',
+      'Pix',
+      'PWA',
+    ],
+  },
   {
     id: 'freelancers-app',
     featured: true,
-    eyebrow: 'Projeto principal',
+    status: { label: 'Em produção', tone: 'live' },
+    eyebrow: 'Eventos, bares e restaurantes',
     title: 'FreelancersApp',
-    description:
-      'Plataforma completa desenvolvida do zero para conectar empresas a profissionais qualificados, solucionando a dificuldade de encontrar e gerenciar profissionais para diferentes demandas e oportunidades de trabalho.',
+    tagline:
+      'Plataforma que conecta eventos, bares, restaurantes e buffets a freelancers verificados: a empresa publica a vaga, escolhe quem vai, acompanha o turno e paga pela plataforma.',
     image: freelancersapp,
     liveUrl: 'https://www.freelancersapp.com.br',
-    githubUrl: 'https://github.com/gui-rodrgiues2005',
 
-    problem:
-      'Empresas enfrentavam dificuldades para encontrar profissionais qualificados de forma rápida e organizada. A proposta foi centralizar todo esse processo em uma única plataforma, desde a publicação das oportunidades até a comunicação, pagamentos e acompanhamento das atividades.',
+    context:
+      'No setor de eventos e food service, montar a escala de um turno ainda depende de grupos de WhatsApp. A empresa não sabe se a pessoa é confiável nem se ela vai aparecer, e o freelancer não tem garantia de que vai receber. Uma falta de última hora pode comprometer um evento inteiro.',
 
-    whatWasBuilt:
-      'Desenvolvimento full stack completo, desde a arquitetura e modelagem do banco até a implementação das interfaces, APIs, regras de negócio, integrações externas, infraestrutura e funcionalidades administrativas. A plataforma conta com autenticação, perfis de usuários, publicação e gestão de vagas, sistema de pagamentos, carteira financeira, conversas em tempo real, notificações push, PWA e uma central administrativa para gerenciamento da plataforma.',
+    intention:
+      'Dar segurança às duas pontas. A empresa contrata profissionais com documento verificado e reputação visível, e o pagamento fica reservado na carteira antes do turno começar. Assim o freelancer sabe que vai receber, e a empresa só libera o valor depois que a presença é confirmada por QR Code. Se alguém falta, a vaga reabre como urgente para quem está por perto.',
+
+    role:
+      'Responsável pelo desenvolvimento full stack completo: arquitetura, modelagem do banco de dados, API, interfaces, regras de negócio, integrações externas, infraestrutura e deploy em produção.',
 
     highlights: [
-      'Arquitetura full stack desenvolvida do zero',
-      'API REST em ASP.NET Core',
-      'Chat e conversações em tempo real com SignalR',
-      'Sistema completo de notificações Push integrado ao PWA',
-      'Central de notificações e campanhas para administradores',
-      'Integração com Asaas para pagamentos e transferências',
-      'Processamento e armazenamento de imagens com Cloudinary',
-      'Envio transacional de e-mails com Resend',
-      'Autenticação e gerenciamento de usuários',
-      'Busca de endereços automático via CEP',
-      'Carteira financeira e fluxo de saques',
-      'Banco de dados PostgreSQL com Entity Framework Core',
-      'PWA com instalação e recursos nativos do dispositivo',
-      'Deploy, configuração de ambiente e infraestrutura em produção',
+      'Ciclo completo do turno: vaga, candidatura, "a caminho", check-in por QR Code e finalização',
+      'Pagamento reservado na carteira antes do turno, com repasse e saque via Asaas',
+      'Verificação de documento antes de liberar as vagas para o freelancer',
+      'Vagas por raio de distância e reabertura urgente em caso de falta, com bônus opcional',
+      'Avaliações, advertências e suspensão automática para manter a qualidade',
+      'Avisos em tempo real com SignalR e notificações push no PWA instalável',
+      'Planos premium, treinamentos em vídeo e central administrativa',
+      'API REST em ASP.NET Core com PostgreSQL, Cloudinary, Resend e deploy no Railway',
     ],
 
     technologies: [
@@ -66,81 +113,75 @@ const PROJECTS = [
       'Cloudinary',
       'Resend',
       'Railway',
-      'PWA'
+      'PWA',
     ],
   },
   {
-    id: 'VittaFlow',
-    title: 'VittaFlow — Plataforma de Solidariedade e Combate ao Desperdício',
-    description:
-      'Plataforma desenvolvida como Trabalho de Conclusão de Curso (TCC), atualmente em desenvolvimento, com a proposta de conectar estabelecimentos, consumidores e ONGs para reduzir o desperdício de alimentos e ampliar o acesso a produtos próximos do fim da validade.',
-    summary:
-      'Solução web que transforma alimentos próximos do vencimento em oportunidades de doação ou aquisição com preços reduzidos, conectando ofertas à localização de ONGs e consumidores.',
+    id: 'vittaflow',
+    status: { label: 'Finalizado', tone: 'done' },
+    eyebrow: 'TCC · Projeto em equipe',
+    title: 'VittaFlow',
+    tagline:
+      'Plataforma que conecta comércios, consumidores e ONGs para que alimentos próximos do vencimento sejam vendidos com desconto ou doados, em vez de descartados.',
     image: vittaflow,
+    liveUrl: 'https://vittaflow.up.railway.app/',
     githubUrl: 'https://github.com/LucasSO-one/tcc-solidario',
 
-    problem:
-      'Milhares de alimentos ainda próprios para consumo são descartados por estarem próximos do fim da validade, enquanto instituições e pessoas enfrentam dificuldades para acessar determinados alimentos. O VittaFlow busca aproximar esses dois cenários por meio de uma plataforma centralizada.',
+    context:
+      'Supermercados, padarias e restaurantes descartam todos os dias alimentos ainda próprios para consumo por estarem perto da validade, enquanto instituições sociais têm dificuldade para conseguir doações regulares.',
 
-    whatWasBuilt:
-      'A plataforma permite que estabelecimentos e varejistas cadastrem alimentos próximos do vencimento e disponibilizem esses produtos em uma vitrine digital. Dependendo do produto e da oferta, os alimentos podem ser destinados à doação ou disponibilizados com preços reduzidos. ONGs e consumidores podem visualizar essas oportunidades, com ofertas relevantes apresentadas de acordo com sua localização.',
+    intention:
+      'Mostrar que a tecnologia pode ligar essas duas pontas sem depender de esforço manual. O comércio publica o lote uma vez: primeiro ele é vendido com desconto e, perto do vencimento, vai sozinho para a vitrine de doação das ONGs. O comércio recupera parte do valor, o consumidor compra mais barato e a ONG recebe alimentos com previsibilidade.',
+
+    role:
+      'Desenvolvido em equipe como Trabalho de Conclusão de Curso em Ciência da Computação, com a plataforma finalizada e publicada. Atuei no desenvolvimento full stack, do backend em .NET às telas em React.',
 
     highlights: [
-      'Projeto desenvolvido como Trabalho de Conclusão de Curso (TCC)',
-      'Plataforma voltada à redução do desperdício alimentar',
-      'Conexão entre estabelecimentos, ONGs e consumidores',
-      'Cadastro e disponibilização de alimentos próximos do vencimento',
-      'Vitrine digital de ofertas para doação ou venda',
-      'Marketplace com produtos disponibilizados a preços reduzidos',
-      'Ofertas direcionadas de acordo com a localização',
-      'Área de Ofertas voltada para ONGs',
-      'Experiência de marketplace também direcionada ao consumidor',
-      'Arquitetura full stack em desenvolvimento'
+      'Três perfis de uso (varejistas, consumidores e ONGs), com aprovação de cadastro pela administração',
+      'Lotes vendidos com desconto e destinados automaticamente às ONGs quando faltam menos de 24 horas para o vencimento',
+      'Rotinas em background que aplicam as regras de validade e bloqueiam lotes vencidos',
+      'Reserva com código de retirada conferido pelo varejista no balcão, garantindo a rastreabilidade de cada entrega',
+      'Dashboards de indicadores com unidades doadas e vendidas por mês',
+      'Autenticação JWT com MFA obrigatório para administradores',
+      'Termos, privacidade e exclusão de conta conforme a LGPD',
     ],
 
     technologies: [
       'React',
-      'Vite',
       'C#',
       'ASP.NET Core',
       'PostgreSQL',
-      'Railway'
+      'Supabase',
+      'Cloudinary',
+      'Docker',
+      'Railway',
     ],
   },
   {
-    id: 'terceiro-projeto',
-    title: 'IntelliStudy — Plataforma Inteligente de Estudos',
-    description:
-      'Projeto autoral desenvolvido a partir da ideia de transformar a Inteligência Artificial em uma ferramenta prática de aprendizagem. A plataforma adapta conteúdos às necessidades do aluno, gerando materiais de estudo, respondendo dúvidas e ajudando na organização da rotina acadêmica.',
-    summary:
-      'Aplicação full stack com IA generativa, geração de conteúdo, análise de imagens, planos de estudos, gamificação, ranking de usuários e assinatura de recursos premium.',
-
+    id: 'intellistudy',
+    status: { label: 'Projeto autoral', tone: 'personal' },
+    eyebrow: 'IA aplicada à educação',
+    title: 'IntelliStudy',
+    tagline:
+      'Plataforma de estudos com IA que transforma qualquer tema em resumos, quizzes e planos de estudo adaptados à rotina do aluno.',
     image: intellistudy,
     githubUrl: 'https://github.com/gui-rodrgiues2005/IntelliStudy',
 
-    problem:
-      'Estudar diferentes conteúdos exige pesquisa, organização e adaptação constante da rotina. A proposta do IntelliStudy foi centralizar essas necessidades em uma única plataforma, utilizando IA para transformar conteúdos pesquisados pelos usuários em experiências de estudo mais personalizadas.',
+    context:
+      'Quem estuda sozinho gasta mais tempo procurando e organizando conteúdo do que aprendendo. Ferramentas de IA genéricas respondem perguntas, mas não ajudam a criar constância.',
 
-    whatWasBuilt:
-      'Desenvolvimento completo da plataforma, incluindo a experiência de estudos, integração com Inteligência Artificial, geração de conteúdos, gerenciamento de usuários, sistema de planos de estudo, gamificação e infraestrutura da aplicação.',
+    intention:
+      'Usar IA generativa como ferramenta de aprendizagem, não só de respostas: gerar material, dividir o conteúdo de acordo com a disponibilidade do aluno e usar gamificação para manter a constância. Também quis validar um modelo de negócio, com recursos premium por assinatura.',
+
+    role: 'Projeto idealizado e desenvolvido do zero por mim, do conceito ao deploy.',
 
     highlights: [
-      'Projeto autoral idealizado e desenvolvido do zero',
-      'Integração com Google Gemini para recursos de Inteligência Artificial',
-      'Geração de resumos personalizados a partir dos conteúdos pesquisados',
-      'Criação automática de quizzes para reforço da aprendizagem',
-      'Interação com IA para esclarecimento de dúvidas',
-      'Suporte a upload de arquivos e imagens para análise pela IA',
-      'Geração de planos de estudos semanais personalizados',
-      'Divisão de conteúdos em etapas menores de acordo com a disponibilidade do aluno',
-      'Sistema de ranking baseado no tempo de utilização da plataforma',
-      'Mecanismos de gamificação para incentivar a constância nos estudos',
-      'Controle e moderação de conteúdo para impedir consultas relacionadas a conteúdo adulto e material impróprio',
-      'Integração com Stripe para gerenciamento de planos e assinaturas',
-      'Liberação de recursos premium para usuários assinantes',
-      'API REST desenvolvida em ASP.NET Core',
-      'Persistência de dados com Entity Framework Core e PostgreSQL',
-      'Aplicação estruturada e preparada para execução em produção'
+      'Integração com Google Gemini para resumos, quizzes e esclarecimento de dúvidas',
+      'Análise de arquivos e imagens enviados pelo aluno',
+      'Planos de estudo semanais divididos pela disponibilidade do aluno',
+      'Ranking e gamificação para incentivar a constância',
+      'Moderação que bloqueia consultas com conteúdo impróprio',
+      'Assinaturas e recursos premium com Stripe',
     ],
 
     technologies: [
@@ -152,89 +193,126 @@ const PROJECTS = [
       'PostgreSQL',
       'Google Gemini API',
       'Stripe',
-      'Railway'
+      'Railway',
     ],
   },
 ];
+
+function StatusBadge({ status }) {
+  if (!status) return null;
+  return (
+    <span className={`projects__status projects__status--${status.tone}`}>
+      <span className="projects__status-dot" aria-hidden="true" />
+      {status.label}
+    </span>
+  );
+}
+
+function ProjectLinks({ project }) {
+  if (!project.liveUrl && !project.githubUrl) return null;
+  return (
+    <div className="projects__actions">
+      {project.liveUrl && (
+        <a
+          href={project.liveUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="projects__button projects__button--primary"
+        >
+          Ver plataforma
+          <span aria-hidden="true">↗</span>
+        </a>
+      )}
+      {project.githubUrl && (
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="projects__button projects__button--outline"
+        >
+          <GitHubIcon />
+          GitHub
+        </a>
+      )}
+    </div>
+  );
+}
+
+function Story({ project }) {
+  return (
+    <div className="projects__story">
+      <div className="projects__detail">
+        <h4>O contexto</h4>
+        <p>{project.context}</p>
+      </div>
+      <div className="projects__detail">
+        <h4>Minha intenção</h4>
+        <p>{project.intention}</p>
+      </div>
+      <div className="projects__detail">
+        <h4>Meu papel</h4>
+        <p>{project.role}</p>
+      </div>
+    </div>
+  );
+}
+
+function Highlights({ items }) {
+  if (!items?.length) return null;
+  return (
+    <div className="projects__highlights">
+      <span className="projects__highlights-label">Destaques técnicos</span>
+      <ul className="projects__highlights-list">
+        {items.map((highlight) => (
+          <li key={highlight} className="projects__highlight">
+            <span className="projects__highlight-dot" aria-hidden="true" />
+            {highlight}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function Tags({ items }) {
+  return (
+    <ul className="projects__tags">
+      {items.map((tech) => (
+        <li key={tech} className="projects__tag">
+          {tech}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 function FeaturedProject({ project }) {
   return (
     <article className="projects__featured">
       <div className="projects__thumb projects__thumb--large">
-        <img src={project.image} alt={`Captura de tela do projeto ${project.title}`} />
+        <img src={project.image} alt={`Captura de tela da plataforma ${project.title}`} />
       </div>
 
       <div className="projects__featured-body">
         <div className="projects__featured-info">
-          <span className="projects__eyebrow projects__eyebrow--warm">
-            {project.eyebrow}
-          </span>
-          <h3 className="projects__featured-title">{project.title}</h3>
-          <p className="projects__featured-description">{project.description}</p>
-
-          <div className="projects__actions">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="projects__button projects__button--primary"
-              >
-                Ver Plataforma
-                <span aria-hidden="true">↗</span>
-              </a>
-            )}
-            {/* {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="projects__button projects__button--outline"
-              >
-                <GitHubIcon />
-                GitHub
-              </a>
-            )} */}
+          <div className="projects__meta">
+            <span className="projects__eyebrow projects__eyebrow--warm">
+              {project.eyebrow}
+            </span>
+            <StatusBadge status={project.status} />
           </div>
+          <h3 className="projects__featured-title">{project.title}</h3>
+          <p className="projects__featured-description">{project.tagline}</p>
 
-          {project.highlights && (
-            <div className="projects__highlights">
-              <span className="projects__highlights-label">
-                Destaques técnicos
-              </span>
-
-              <ul className="projects__highlights-list">
-                {project.highlights.map((highlight) => (
-                  <li key={highlight} className="projects__highlight">
-                    <span className="projects__highlight-dot" aria-hidden="true" />
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <ProjectLinks project={project} />
+          <Highlights items={project.highlights} />
         </div>
 
         <div className="projects__featured-details">
-          <div className="projects__detail">
-            <h4>Problema</h4>
-            <p>{project.problem}</p>
-          </div>
-
-          <div className="projects__detail">
-            <h4>O que foi desenvolvido</h4>
-            <p>{project.whatWasBuilt}</p>
-          </div>
-
+          <Story project={project} />
           <div className="projects__detail">
             <h4>Tecnologias</h4>
-            <ul className="projects__tags">
-              {project.technologies.map((tech) => (
-                <li key={tech} className="projects__tag">
-                  {tech}
-                </li>
-              ))}
-            </ul>
+            <Tags items={project.technologies} />
           </div>
         </div>
       </div>
@@ -246,68 +324,50 @@ function ProjectCard({ project }) {
   return (
     <article className="projects__card">
       <div className="projects__thumb">
-        <img src={project.image} alt={`Captura de tela do projeto ${project.title}`} />
+        <img src={project.image} alt={`Captura de tela da plataforma ${project.title}`} />
       </div>
 
       <div className="projects__card-body">
+        <div className="projects__meta">
+          <span className="projects__eyebrow projects__eyebrow--warm">
+            {project.eyebrow}
+          </span>
+          <StatusBadge status={project.status} />
+        </div>
         <h3 className="projects__card-title">{project.title}</h3>
-        <p className="projects__card-description">{project.description}</p>
-        {project.summary && <p className="projects__card-summary">{project.summary}</p>}
+        <p className="projects__card-description">{project.tagline}</p>
 
-        <ul className="projects__tags">
-          {project.technologies.map((tech) => (
-            <li key={tech} className="projects__tag">
-              {tech}
-            </li>
-          ))}
-        </ul>
-
-        {project.githubUrl && (
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="projects__button projects__button--outline"
-          >
-            <GitHubIcon />
-            GitHub
-          </a>
-        )}
-        {project.highlights && (
-          <div className="projects__highlights">
-            <span className="projects__highlights-label">
-              Destaques técnicos
-            </span>
-
-            <ul className="projects__highlights-list">
-              {project.highlights.map((highlight) => (
-                <li key={highlight} className="projects__highlight">
-                  <span className="projects__highlight-dot" aria-hidden="true" />
-                  {highlight}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <ProjectLinks project={project} />
+        <Story project={project} />
+        <Highlights items={project.highlights} />
+        <Tags items={project.technologies} />
       </div>
     </article>
   );
 }
 
 function Projects() {
-  const [featured, ...rest] = PROJECTS;
+  const featured = PROJECTS.filter((project) => project.featured);
+  const rest = PROJECTS.filter((project) => !project.featured);
 
   return (
     <section id="projetos" className="projects">
       <ScrollReveal className="projects__container">
         <span className="projects__eyebrow">Projetos</span>
         <h2 className="projects__title">
-          Poucos projetos, apresentados
+          Produtos reais, construídos
           <br />
-          com cuidado.
+          do zero e colocados no ar.
         </h2>
+        <p className="projects__intro">
+          Cada projeto nasceu de um problema concreto. Abaixo conto o contexto,
+          o que eu queria resolver e qual foi o meu papel, além das decisões
+          técnicas por trás de cada plataforma.
+        </p>
 
-        {featured && <FeaturedProject project={featured} />}
+        {featured.map((project) => (
+          <FeaturedProject key={project.id} project={project} />
+        ))}
 
         {rest.length > 0 && (
           <div className="projects__grid">

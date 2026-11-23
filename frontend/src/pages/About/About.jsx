@@ -28,6 +28,14 @@ function About() {
           </p>
 
           <p className="about__paragraph">
+            Hoje tenho produtos reais em produção, como a DROPMA, plataforma
+            que idealizei e opero, integrada ao Mercado Livre e com pagamentos
+            via Pix, e o FreelancersApp, que conecta eventos, bares e restaurantes
+            a freelancers verificados, com pagamento reservado e check-in por
+            QR Code.
+          </p>
+
+          <p className="about__paragraph">
             Gosto de código limpo, interfaces bem pensadas e soluções que
             continuam simples de manter depois que entram em produção.
           </p>

@@ -30,7 +30,67 @@
     font-weight: 500;
     color: $color-text;
     letter-spacing: -0.01em;
+    margin: 0 0 20px;
+  }
+
+  &__intro {
+    max-width: 640px;
+    font-size: $font-size-body;
+    line-height: $line-height-base;
+    color: $color-text-muted;
     margin: 0 0 56px;
+  }
+
+  // ---- Linha de eyebrow + status ----
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 14px;
+    margin-bottom: 12px;
+
+    .projects__eyebrow {
+      margin-bottom: 0;
+    }
+  }
+
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: $radius-pill;
+    border: 1px solid $color-border;
+    background-color: $color-bg;
+    color: $color-text;
+
+    &-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: $color-text-soft;
+    }
+
+    &--live .projects__status-dot {
+      background-color: $color-accent-dot;
+      box-shadow: 0 0 0 3px rgba(76, 175, 109, 0.2);
+    }
+
+    &--done .projects__status-dot {
+      background-color: $color-accent;
+    }
+
+    &--personal .projects__status-dot {
+      background-color: $color-eyebrow;
+    }
+  }
+
+  &__story {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
   // ---- Card do projeto principal ----
@@ -254,12 +314,29 @@
     margin: 0;
   }
 
-  &__card .projects__tags {
-    margin: 4px 0 8px;
+  &__card .projects__meta {
+    margin-bottom: 0;
   }
 
-  &__card .projects__button {
-    align-self: flex-start;
+  &__card .projects__actions {
+    margin: 4px 0 12px;
+  }
+
+  &__card .projects__story {
+    padding-top: 20px;
+    border-top: 1px solid $color-border;
+  }
+
+  &__card .projects__highlights {
+    margin-top: 8px;
+  }
+
+  &__card .projects__highlights-list {
+    grid-template-columns: 1fr;
+  }
+
+  &__card .projects__tags {
+    margin-top: 8px;
   }
 
   @media (max-width: $bp-tablet) {
